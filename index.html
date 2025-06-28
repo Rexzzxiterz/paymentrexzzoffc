@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Rexy Hosting</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f7f8ff, #ffffff);
+      overflow-x: hidden;
+    }
+
+    /* Floating Animation */
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Snow Particle */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 1em;
+      user-select: none;
+      z-index: 9999;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="font-sans relative">
+
+  <!-- Snow Container -->
+  <div id="snow-container"></div>
+
+  <div class="max-w-xl mx-auto p-6 relative z-10">
+    <div class="text-center mb-6 floating" data-aos="fade-down">
+      <h1 class="text-2xl font-bold text-purple-700">Payment Rexzz Official</h1>
+      <p class="text-sm text-gray-500">Select your preferred payment method</p>
+    </div>
+
+    <!-- E-Wallet Section -->
+    <div class="bg-white rounded-lg shadow-md p-4 mb-6" data-aos="fade-up">
+      <h2 class="text-lg font-semibold mb-4">💳 E-Wallet Payment</h2>
+
+      <div class="mb-4 flex justify-between items-center border p-3 rounded-lg bg-purple-50 floating">
+        <div>
+          <p class="font-semibold text-purple-800">DANA</p>
+          <p class="text-gray-600 text-sm">082313186068</p>
+        </div>
+        <button onclick="copyText('082313186068')" class="bg-purple-600 text-white px-3 py-1 rounded">Copy</button>
+      </div>
+
+      <div class="flex justify-between items-center border p-3 rounded-lg bg-purple-50 floating">
+        <div>
+          <p class="font-semibold text-purple-800">Gopay</p>
+          <p class="text-gray-600 text-sm">082313186068</p>
+        </div>
+        <button onclick="copyText('082313186068')" class="bg-purple-600 text-white px-3 py-1 rounded">Copy</button>
+      </div>
+    </div>
+
+    <!-- QRIS Section -->
+    <div class="bg-white rounded-lg shadow-md p-4 floating" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-lg font-semibold mb-4">📱 QRIS Payment</h2>
+      <img src="https://i.ibb.co/dDkPH6R/qris.jpg" alt="QRIS Rexyy" class="rounded-lg w-full">
+      <p class="text-sm text-center text-gray-500 mt-3">
+        Scan this QR code using your mobile banking or e-wallet app
+      </p>
+    </div>
+  </div>
+
+  <!-- Copy Function -->
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
+    }
+  </script>
+
+  <!-- Snow Particle Script -->
+  <script>
+    const snowContainer = document.getElementById('snow-container');
+    const snowflakes = 40;
+
+    for (let i = 0; i < snowflakes; i++) {
+      let snow = document.createElement('div');
+      snow.classList.add('snowflake');
+      snow.innerHTML = '❄️';
+      snow.style.left = Math.random() * window.innerWidth + 'px';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      snowContainer.appendChild(snow);
+    }
+  </script>
+
+  <!-- AOS Animasi -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>
