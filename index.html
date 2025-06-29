@@ -1,153 +1,149 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>APK BUG BY ALWAYSRIKY</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atherium X1 | Script Bot WhatsApp</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: url('https://files.catbox.moe/mp9vqc.jpg') no-repeat center center fixed;
-      background-size: cover;
+      margin: 0;
+      padding: 0;
+      background: #000;
       color: white;
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://i.ibb.co/jHkK9VP/bg-dark.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
       text-align: center;
-      padding: 60px 20px;
+    }
+
+    img.logo {
+      width: 200px;
+      margin-top: 30px;
     }
 
     h1 {
-      font-size: 80px;
-      font-weight: bold;
-      margin-bottom: 80px;
-      text-shadow: 4px 4px 12px #000;
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #ff003c;
+      text-shadow: 0 0 10px red;
     }
 
-    input[type="text"], input[type="password"] {
-      padding: 25px;
-      font-size: 40px;
-      width: 95%;
-      max-width: 700px;
-      border-radius: 15px;
-      border: none;
-      margin-bottom: 40px;
-      text-align: center;
-      box-shadow: 0 0 15px #000;
+    .tagline {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 30px;
     }
 
-    .button-group button, .login-box button {
-      margin: 25px;
-      padding: 25px 60px;
-      font-size: 45px;
-      font-weight: bold;
-      border: none;
-      border-radius: 20px;
-      background-color: #1e90ff;
-      color: white;
-      cursor: pointer;
-      box-shadow: 4px 4px 12px #000;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .button-group button:hover, .login-box button:hover {
-      background-color: #005bb5;
-      transform: scale(1.1);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* Tombol Logout di kanan atas */
-    #logoutBtn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      padding: 15px 30px;
-      background-color: red;
-      color: white;
-      border: none;
+    .price {
+      font-size: 18px;
+      background: #111;
+      padding: 10px;
       border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid red;
+    }
+
+    .features {
+      text-align: left;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      margin-bottom: 30px;
+    }
+
+    .features h3 {
+      color: #ff003c;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features ul li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .features ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #0f0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      border: none;
+      background: red;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff1f4c;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    audio {
       display: none;
-      box-shadow: 3px 3px 10px #000;
     }
-
-    #logoutBtn:hover {
-      background-color: darkred;
-    }
-
   </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
 
-  <h1>APK BUG BY ALWAYSRIKY</h1>
+  <div class="container">
+    <img class="logo" src="https://i.ibb.co/7Ndz4X4/atherium-x1.jpg" alt="Atherium X1"/>
+    <h1>ATHERIUM X1</h1>
+    <p class="tagline">Script Bot WhatsApp Bug Premium</p>
 
-  <!-- Tombol Logout -->
-  <button id="logoutBtn" onclick="logout()">LOG OUT</button>
-
-  <!-- Login Form -->
-  <div class="login-box" id="loginBox">
-    <input type="text" id="username" placeholder="Username"><br>
-    <input type="password" id="password" placeholder="Password"><br>
-    <button onclick="login()">LOGIN</button>
-  </div>
-
-  <!-- Main APK Bug Form -->
-  <div id="mainContent" class="hidden">
-    <input type="text" id="nomor" placeholder="Masukkan Nomor Target"><br>
-    <div class="button-group">
-      <button onclick="kirimKeBot('FORCE')">FORCE</button>
-      <button onclick="kirimKeBot('DELAY')">DELAY</button>
-      <button onclick="kirimKeBot('INVIS')">INVIS</button>
+    <div class="price">
+      <p>🔥 PO SC Atherium V2: <strong>15K</strong> (Free Update V3)</p>
+      <p>🔥 SC Atherium V1 ENC: <strong>10K</strong></p>
     </div>
-    <div id="status" style="font-size: 35px; margin-top: 40px;"></div>
+
+    <div class="features">
+      <h3>🌟 Fitur dan Efek 🌟</h3>
+      <ul>
+        <li>Delay Easy</li>
+        <li>Delay Hard</li>
+        <li>Delay Permanen</li>
+        <li>BULLDOZER V1</li>
+        <li>BULLDOZER V2</li>
+        <li>Combo Bug V1</li>
+        <li>Combo Bug V2</li>
+      </ul>
+    </div>
+
+    <a class="btn" href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20Script%20Atherium%20X1" target="_blank">Pesan Sekarang</a>
+    <a class="btn" href="#testimoni">Lihat Testimoni</a>
+
+    <footer>
+      <p>© 2025 Atherium Official. All rights reserved.</p>
+    </footer>
   </div>
-
-  <script>
-    function login() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-
-      if (user === "alwaysriky" && pass === "alwaysriky") {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("logoutBtn").style.display = "inline-block";
-      } else {
-        alert("Login gagal! Username atau password salah.");
-      }
-    }
-
-    function logout() {
-      document.getElementById("mainContent").classList.add("hidden");
-      document.getElementById("loginBox").style.display = "block";
-      document.getElementById("logoutBtn").style.display = "none";
-    }
-
-    function kirimKeBot(mode) {
-      const nomor = document.getElementById("nomor").value;
-      const status = document.getElementById("status");
-
-      if (!nomor) {
-        alert("Masukkan nomor terlebih dahulu!");
-        return;
-      }
-
-      // Contoh kirim data ke bot (ubah URL ke IP/server bot kamu)
-      fetch("https://your-server.com/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nomor: nomor, mode: mode })
-      })
-      .then(res => res.text())
-      .then(res => {
-        status.innerText = "✅ Berhasil dikirim ke bot!";
-      })
-      .catch(err => {
-        status.innerText = "❌ Gagal mengirim ke bot!";
-      });
-    }
-  </script>
-
 </body>
 </html>
