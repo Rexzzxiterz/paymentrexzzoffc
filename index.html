@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SC Atherium - Promo Script</title>
+  <title>LightSecret Portfolio</title>
   <style>
     * {
       margin: 0;
@@ -12,85 +12,201 @@
       font-family: 'Segoe UI', sans-serif;
     }
     body {
-      background-color: #111;
-      color: white;
-      padding: 20px;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+      overflow-x: hidden;
     }
     .container {
-      max-width: 480px;
+      text-align: center;
+      max-width: 800px;
       margin: auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      background: rgba(10, 10, 30, 0.6);
+      box-shadow: 0 0 25px rgba(1, 1, 1, 1);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease forwards;
     }
-    .poster {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px #444;
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .price {
-      font-size: 16px;
-      margin-bottom: 10px;
+    h1 {
+      font-size: 2.5rem;
+      color: #bb66ff;
+      text-shadow: 0 0 5px #bb66ff, 0 0 15px #bb66ff;
+      margin-bottom: 1rem;
     }
-    .fitur-title {
-      font-weight: bold;
-      margin: 20px 0 10px;
-      font-size: 18px;
+    h2 {
+      color: #bb66ff;
+      margin-top: 1rem;
     }
-    ul.fitur {
-      list-style: none;
+    p {
+      font-size: 1.1rem;
+      color: #aaa;
       line-height: 1.6;
     }
-    ul.fitur li::before {
-      content: "✅ ";
-      color: #00ffae;
-    }
-    .button {
-      display: block;
-      text-align: center;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      padding: 12px;
-      border-radius: 8px;
-      margin: 10px 0;
+    .btn,
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      margin: 1rem auto 0;
+      border-radius: 2rem;
+      font-size: 1rem;
       font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+      border: none;
+      width: 80%;
     }
-    .button:hover {
-      background: #00ffae;
-      color: #000;
+    .btn:hover,
+    .link-btn:hover {
+      transform: scale(1.05);
+    }
+    .btn { background: #bb66ff; }
+    .whatsapp { background: #25D366; }
+    .channelwa { background: #128C7E; }
+    .testimoni { background: #f39c12; }
+    .youtube { background: #FF0000; }
+    .instagram { background: #C13584; }
+    .telegram { background: #0088cc; }
+    .produk { background: #6c5ce7; }
+    .payment { background: #00cec9; }
+
+    .copyright {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* LOGO WARNA UNGU */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #bb66ff;
+      box-shadow: 0 0 15px #bb66ff;
+      object-fit: cover;
+      margin: 1rem 0;
+    }
+
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    #audio-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #bb66ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #bb66ff;
+      z-index: 999;
+    }
+    #click-text {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      color: white;
+      background: #bb66ff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #bb66ff;
+      display: none;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://i.ibb.co/qjMJ0hV/nted.jpg" alt="NTED Crasher Poster" class="poster" />
-    
-    <div class="price">
-      • <b>Rilis Script:</b> 40K <br>
-      • <b>Reseller SC NTED:</b> 50K
-    </div>
+  <button id="audio-btn">▶</button>
+  <div id="click-text">Click Me!</div>
+  <audio id="bg-sound" src="https://files.catbox.moe/xs2ldj.mp3"></audio>
 
-    <div class="fitur-title">Animasi dan Fitur</div>
-    <ul class="fitur">
-      <li>Function New 100%</li>
-      <li>Force Close New</li>
-      <li>Blanksystem And Hard</li>
-      <li>Invisible No Kenon</li>
-      <li>Delay maker Hard</li>
-      <li>Crash Ios New</li>
-      <li>Crash UI Total</li>
-      <li>Easy Delay Mention</li>
-      <li>Super Delay Mention</li>
-      <li>Bug Group Freeze</li>
-      <li>Bug Group Force</li>
-      <li>Bug Group Hard</li>
-      <li>Bug Group Inplace</li>
-      <li>Fc Ch 100%</li>
-      <li>CPANEL MENU</li>
-      <li>DLL</li>
-    </ul>
-
-    <a href="https://wa.me/628xxxxxxxxxx" class="button">🛒 Pesan Produk</a>
-    <a href="#testimoni" class="button">🔗 Testimoni</a>
+  <!-- PAGE 1 -->
+  <div id="page1" class="container page active">
+    <h1>Hi, I Am LightSecret</h1>
+    <img src="https://files.catbox.moe/fjhlmo.jpg" alt="LIGHTSECRET" class="profile-pic" />
+    <p>⚊𝗄𝖺𝗅𝗈 𝖻𝖾𝗅𝗎𝗆 𝗉𝗎𝗇𝗒𝖺 𝖺𝗉𝖺-𝖺𝗉𝖺, 𝗆𝖾𝗇𝖽𝗂𝗇𝗀 𝗃𝖺𝗇𝗀𝖺𝗇 𝗉𝗎𝗇𝗒𝖺 𝗌𝗂𝖺𝗉𝖺-𝗌𝗂𝖺𝗉𝖺 𝖽𝗎𝗅𝗎</p>
+    <a href="#" class="btn" onclick="showPage2()">Selengkapnya</a>
   </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="container page">
+    <img src="https://files.catbox.moe/fjhlmo.jpg" alt="LIGHTSECRET" class="profile-pic" />
+    <h2>LIGHTSECRET</h2>
+    <div class="links">
+      <a href="https://wa.me/6281939245564" class="link-btn whatsapp">WhatsApp</a>
+      <a href="https://whatsapp.com/channel/0029VbADDW2ISTkREJ5m4833" class="link-btn channelwa">Saluran Utama</a>
+      <a href="https://whatsapp.com/channel/0029Vb9vfiZ96H4VScP6l10j" class="link-btn testimoni">Testimoni</a>
+      <a href="https://www.youtube.com/@lightsecret" class="link-btn instagram">Youtube</a>
+      <a href="https://t.me/lightsecret" class="link-btn telegram">Telegram</a>
+      <a href="https://website-all-produk-lightsecret.vercel.app" class="link-btn produk">Produk</a>
+      <a href="https://all-payment-lightsecret.vercel.app" class="link-btn payment">Payment</a>
+      <a href="#" class="btn" onclick="showPage1()">Kembali</a>
+    </div>
+    <div class="copyright">&copy; 2025 LightSecret Website</div>
+  </div>
+
+  <script>
+    function showClickText() {
+      const text = document.getElementById('click-text');
+      text.style.display = 'block';
+      setTimeout(() => text.style.display = 'none', 2000);
+    }
+
+    function showPage1() {
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page1').classList.add('active');
+      showClickText();
+    }
+
+    function showPage2() {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+      showClickText();
+    }
+
+    const audioBtn = document.getElementById('audio-btn');
+    const audio = document.getElementById('bg-sound');
+    let isPlaying = false;
+
+    audioBtn.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        audioBtn.textContent = '■';
+      } else {
+        audio.pause();
+        audioBtn.textContent = '▶';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    window.addEventListener('load', () => {
+      showClickText();
+    });
+  </script>
 </body>
 </html>
