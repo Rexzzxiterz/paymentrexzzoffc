@@ -1,123 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Payment Rexy Hosting</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>SC ATHERIUM XI - DAPZ DEV</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background: linear-gradient(to bottom, #f7f8ff, #ffffff);
-      overflow-x: hidden;
+      font-family: 'Courier New', monospace;
+      background: #0f0f0f;
+      color: #00ffcc;
+      background-image: radial-gradient(#00ffcc22 1px, transparent 1px),
+                        radial-gradient(#00ffcc11 1px, transparent 1px);
+      background-size: 20px 20px;
+      text-shadow: 0 0 5px #00ffe0;
+      line-height: 1.5;
+      padding: 20px;
     }
-
-    .floating {
-      animation: float 3s ease-in-out infinite;
+    .container {
+      max-width: 700px;
+      margin: auto;
     }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+    h1.glitch {
+      font-size: 2.2rem;
+      text-align: center;
+      color: #00ffff;
+      animation: glitch 2s infinite;
+      margin-bottom: 10px;
     }
-
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: #fff;
-      font-size: 1em;
-      user-select: none;
-      z-index: 9999;
-      pointer-events: none;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 0 magenta, 2px 0 lime; }
+      40% { text-shadow: 2px 2px red, -2px -2px cyan; }
+      60% { text-shadow: -2px 2px magenta, 2px -2px lime; }
+      80% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      100% { text-shadow: 0 0 5px #00ffe0; }
     }
-
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+    .glitch-sub {
+      color: #00ffcc;
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    .box {
+      border: 2px dashed #00ffcc;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(0, 255, 204, 0.05);
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+    li {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    .price {
+      font-size: 1rem;
+      background: #111;
+      padding: 10px;
+      border: 1px solid #00ffcc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .cta {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1rem;
+      background: #00ffcc;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00ffcc;
+      transition: 0.3s;
+    }
+    .cta:hover {
+      background: #00e6b8;
+      box-shadow: 0 0 15px #00e6b8;
+    }
+    .note {
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 480px) {
+      h1.glitch {
+        font-size: 1.7rem;
+      }
+      .cta {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+      .price {
+        font-size: 0.95rem;
+      }
+      li {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
-<body class="font-sans relative">
+<body>
+  <!-- Musik skena otomatis -->
+  <audio autoplay loop hidden>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_65fa61282f.mp3?filename=hacker-theme-ambient-140863.mp3" type="audio/mp3">
+  </audio>
 
-  <!-- Snow Container -->
-  <div id="snow-container"></div>
+  <div class="container">
+    <h1 class="glitch">📢 NEW SC ATHERIUM</h1>
+    <div class="glitch-sub">〘 DAPZ DEV | ATHERIUM XI 〙</div>
 
-  <div class="max-w-xl mx-auto p-6 relative z-10">
-    <div class="text-center mb-6 floating" data-aos="fade-down">
-      <h1 class="text-2xl font-bold text-purple-700">Payment Rexzz Official</h1>
-      <p class="text-sm text-gray-500">Select your preferred payment method</p>
-    </div>
+    <div class="box">
+      <h3>🌟 FITUR AND EFEK 🌟</h3>
+      <ul>
+        <li>BUG DELAY EASY ⚠️</li>
+        <li>BUG DELAY HARD ⚠️</li>
+        <li>BUG DELAY PERMANEN ⚠️</li>
+        <li>BULLDOZER 1 & 2 ⚠️</li>
+        <li>COMBO FUNC 1 - 3 ⚠️</li>
+        <li>FC NO CLICK ⚠️</li>
+      </ul>
 
-    <!-- E-Wallet Section -->
-    <div class="bg-white rounded-lg shadow-md p-4 mb-6" data-aos="fade-up">
-      <h2 class="text-lg font-semibold mb-4">💳 E-Wallet Payment</h2>
-
-      <!-- DANA -->
-      <div class="mb-4 flex items-center justify-between border p-3 rounded-lg bg-purple-50 floating">
-        <div class="flex items-center space-x-3">
-          <img src="https://i.ibb.co/k0Tn5Mw/dana.png" alt="Dana Logo" class="w-8 h-8 rounded-full bg-white p-1">
-          <div>
-            <p class="font-semibold text-purple-800">DANA</p>
-            <p class="text-gray-600 text-sm">082313186068</p>
-          </div>
-        </div>
-        <button onclick="copyText('082313186068')" class="bg-purple-600 text-white px-3 py-1 rounded">Copy</button>
+      <div class="price">
+        💸 <strong>HARGA SCRIPT ATHERIUM</strong><br/>
+        🔹 PO SC ATHERIUM V2: <strong>15K</strong> (Free Update V3)<br/>
+        🔹 SC ATHERIUM V1 ENC: <strong>10K</strong>
       </div>
 
-      <!-- GOPAY -->
-      <div class="flex items-center justify-between border p-3 rounded-lg bg-purple-50 floating">
-        <div class="flex items-center space-x-3">
-          <img src="https://i.ibb.co/XCFyWbd/gopay.png" alt="GoPay Logo" class="w-8 h-8 rounded-full bg-white p-1">
-          <div>
-            <p class="font-semibold text-purple-800">Gopay</p>
-            <p class="text-gray-600 text-sm">082313186068</p>
-          </div>
-        </div>
-        <button onclick="copyText('082313186068')" class="bg-purple-600 text-white px-3 py-1 rounded">Copy</button>
-      </div>
-    </div>
+      <a class="cta" href="https://wa.me/6282313186068" target="_blank">
+        💬 Order Sekarang via WhatsApp
+      </a>
 
-    <!-- QRIS Section -->
-    <div class="bg-white rounded-lg shadow-md p-4 floating" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="text-lg font-semibold mb-4">📱 QRIS Payment</h2>
-      <img src="https://i.ibb.co/dDkPH6R/qris.jpg" alt="QRIS Rexyy" class="rounded-lg w-full">
-      <p class="text-sm text-center text-gray-500 mt-3">
-        Scan this QR code using your mobile banking or e-wallet app
-      </p>
+      <div class="note">SC murah, efek gak murahan bos 🔥</div>
     </div>
   </div>
-
-  <!-- Copy Function -->
-  <script>
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert("Copied: " + text);
-    }
-  </script>
-
-  <!-- Snow Particle Script -->
-  <script>
-    const snowContainer = document.getElementById('snow-container');
-    const snowflakes = 40;
-
-    for (let i = 0; i < snowflakes; i++) {
-      let snow = document.createElement('div');
-      snow.classList.add('snowflake');
-      snow.innerHTML = '❄️';
-      snow.style.left = Math.random() * window.innerWidth + 'px';
-      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
-      snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
-      snowContainer.appendChild(snow);
-    }
-  </script>
-
-  <!-- AOS Animasi -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-
 </body>
 </html>
