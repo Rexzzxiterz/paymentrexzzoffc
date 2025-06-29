@@ -2,113 +2,152 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Script Atherium X1</title>
+  <title>APK BUG BY ALWAYSRIKY</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
+      font-family: Arial, sans-serif;
+      background: url('https://files.catbox.moe/mp9vqc.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       text-align: center;
-    }
-
-    header {
-      padding: 20px;
-      background-color: #111;
-    }
-
-    .logo {
-      width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px red;
+      padding: 60px 20px;
     }
 
     h1 {
-      font-size: 28px;
-      margin: 20px 0 10px;
-      color: #ff0000;
+      font-size: 80px;
+      font-weight: bold;
+      margin-bottom: 80px;
+      text-shadow: 4px 4px 12px #000;
     }
 
-    .price {
-      font-size: 18px;
-      color: #eee;
-      margin-bottom: 20px;
-    }
-
-    .fitur {
-      max-width: 480px;
-      margin: 0 auto;
-      text-align: left;
-      background: #111;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid red;
-    }
-
-    .fitur h2 {
+    input[type="text"], input[type="password"] {
+      padding: 25px;
+      font-size: 40px;
+      width: 95%;
+      max-width: 700px;
+      border-radius: 15px;
+      border: none;
+      margin-bottom: 40px;
       text-align: center;
-      color: #f00;
-      margin-bottom: 15px;
+      box-shadow: 0 0 15px #000;
     }
 
-    .fitur ul {
-      list-style: "🔥 ";
-      padding-left: 20px;
+    .button-group button, .login-box button {
+      margin: 25px;
+      padding: 25px 60px;
+      font-size: 45px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      background-color: #1e90ff;
+      color: white;
+      cursor: pointer;
+      box-shadow: 4px 4px 12px #000;
+      transition: background 0.3s, transform 0.2s;
     }
 
-    .btn {
-      margin: 20px 10px;
-      padding: 12px 24px;
+    .button-group button:hover, .login-box button:hover {
+      background-color: #005bb5;
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Tombol Logout di kanan atas */
+    #logoutBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      padding: 15px 30px;
       background-color: red;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
-      text-decoration: none;
+      display: none;
+      box-shadow: 3px 3px 10px #000;
     }
 
-    .btn:hover {
+    #logoutBtn:hover {
       background-color: darkred;
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: gray;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-  <img class="logo" src="https://i.ibb.co/93qv8NLq/atherium-x1.jpg" alt="Atherium X1">
-    <h1>Script Atherium X1</h1>
-    <p class="price">PO SC V2: 15K (Free Update V3) <br> SC V1 ENC: 10K</p>
-  </header>
+  <h1>APK BUG BY ALWAYSRIKY</h1>
 
-  <section class="fitur">
-    <h2>🌟 Fitur dan Efek 🌟</h2>
-    <ul>
-      <li>DELAY EASY</li>
-      <li>DELAY HARD</li>
-      <li>DELAY PERMANEN</li>
-      <li>BULLDOZER V1</li>
-      <li>BULLDOZER V2</li>
-      <li>COMBO BUG V1</li>
-      <li>COMBO BUG V2</li>
-    </ul>
-  </section>
+  <!-- Tombol Logout -->
+  <button id="logoutBtn" onclick="logout()">LOG OUT</button>
 
-  <div>
-    <a href="https://wa.me/628xxxxxxxxxx" class="btn">Pesan Sekarang</a>
-    <a href="https://wa.me/628xxxxxxxxxx" class="btn">Lihat Testimoni</a>
+  <!-- Login Form -->
+  <div class="login-box" id="loginBox">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">LOGIN</button>
   </div>
 
-  <footer>
-    &copy; 2025 Atherium Team
-  </footer>
+  <!-- Main APK Bug Form -->
+  <div id="mainContent" class="hidden">
+    <input type="text" id="nomor" placeholder="Masukkan Nomor Target"><br>
+    <div class="button-group">
+      <button onclick="kirimKeBot('FORCE')">FORCE</button>
+      <button onclick="kirimKeBot('DELAY')">DELAY</button>
+      <button onclick="kirimKeBot('INVIS')">INVIS</button>
+    </div>
+    <div id="status" style="font-size: 35px; margin-top: 40px;"></div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "alwaysriky" && pass === "alwaysriky") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").classList.remove("hidden");
+        document.getElementById("logoutBtn").style.display = "inline-block";
+      } else {
+        alert("Login gagal! Username atau password salah.");
+      }
+    }
+
+    function logout() {
+      document.getElementById("mainContent").classList.add("hidden");
+      document.getElementById("loginBox").style.display = "block";
+      document.getElementById("logoutBtn").style.display = "none";
+    }
+
+    function kirimKeBot(mode) {
+      const nomor = document.getElementById("nomor").value;
+      const status = document.getElementById("status");
+
+      if (!nomor) {
+        alert("Masukkan nomor terlebih dahulu!");
+        return;
+      }
+
+      // Contoh kirim data ke bot (ubah URL ke IP/server bot kamu)
+      fetch("https://your-server.com/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nomor: nomor, mode: mode })
+      })
+      .then(res => res.text())
+      .then(res => {
+        status.innerText = "✅ Berhasil dikirim ke bot!";
+      })
+      .catch(err => {
+        status.innerText = "❌ Gagal mengirim ke bot!";
+      });
+    }
+  </script>
 
 </body>
 </html>
