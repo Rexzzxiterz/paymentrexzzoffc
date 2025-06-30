@@ -21,6 +21,9 @@
   </div>
 
   <script>
+    const successAudio = new Audio("/sound/success.mp3");
+    const errorAudio = new Audio("/sound/error.mp3");
+
     document.getElementById("groupForm").addEventListener("submit", async function(e) {
       e.preventDefault();
       const data = {
@@ -43,8 +46,10 @@
 
         const result = await res.json();
         responseBox.textContent = result.message || "Terkirim!";
+        successAudio.play();
       } catch (err) {
         responseBox.textContent = "Gagal mengirim!";
+        errorAudio.play();
       }
     });
   </script>
