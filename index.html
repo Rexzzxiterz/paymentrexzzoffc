@@ -275,10 +275,7 @@
         document.getElementById('login-password-error').style.display = 'block';
         isValid = false;
       }
-      if (isValid) {
-        // Redirect to group add link after successful login
-        window.location.href = "https://groupsor.link/group/addgroup";
-      }
+      if (isValid) alert('Login successful! (fake)');
     };
 
     document.getElementById('register').onsubmit = e => {
