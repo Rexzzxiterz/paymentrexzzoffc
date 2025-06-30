@@ -20,9 +20,13 @@
     <div id="response" class="mt-4 text-center"></div>
   </div>
 
+  <!-- Fallback audio elements (for preload) -->
+  <audio id="successSound" src="sound/success.mp3" preload="auto"></audio>
+  <audio id="errorSound" src="sound/error.mp3" preload="auto"></audio>
+
   <script>
-    const successAudio = new Audio("/sound/success.mp3");
-    const errorAudio = new Audio("/sound/error.mp3");
+    const successSound = document.getElementById("successSound");
+    const errorSound = document.getElementById("errorSound");
 
     document.getElementById("groupForm").addEventListener("submit", async function(e) {
       e.preventDefault();
@@ -45,11 +49,17 @@
         });
 
         const result = await res.json();
-        responseBox.textContent = result.message || "Terkirim!";
-        successAudio.play();
+
+        if (res.ok) {
+          responseBox.textContent = result.message || "Terkirim!";
+          successSound.play();
+        } else {
+          responseBox.textContent = result.message || "Gagal mengirim!";
+          errorSound.play();
+        }
       } catch (err) {
         responseBox.textContent = "Gagal mengirim!";
-        errorAudio.play();
+        errorSound.play();
       }
     });
   </script>
