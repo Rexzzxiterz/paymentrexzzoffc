@@ -3,65 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WhatsApp Group Sender</title>
+  <title>APLIKASI JASA SHARE</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f0f1a 0%, #0b0b2e 100%);
+      color: white;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    .auth-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .auth-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 30px #0072ff55;
+      transition: transform 0.3s ease;
+    }
+
+    .auth-card:hover {
+      transform: scale(1.02);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 198, 255, 0.5);
+      object-fit: cover;
+    }
+
+    .logo h1 {
+      margin-top: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #0072ff;
+    }
+
+    .auth-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(0, 198, 255, 0.8);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #00c6ff88;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      transform: translateY(-2px);
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .auth-footer a {
+      color: #00c6ff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-footer a:hover {
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .error-message {
+      color: #ff7d7d;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans p-6">
-  <div class="max-w-xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-center text-cyan-400">WhatsApp Group Sender</h1>
-    <form id="groupForm" class="space-y-4">
-      <input type="text" id="link" placeholder="Group Link" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
-      <input type="text" id="kategori" placeholder="Kategori" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
-      <input type="text" id="negara" placeholder="Negara" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
-      <input type="text" id="tag" placeholder="Tag" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
-      <textarea id="deskripsi" placeholder="Deskripsi" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"></textarea>
-      <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white p-2 rounded">Kirim</button>
-    </form>
-    <div id="response" class="mt-4 text-center"></div>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="logo">
+        <img src="https://i.imgur.com/f1zyWUB.jpeg" alt="REXZ Logo"/>
+        <h1>APLIKASI JASA SHARE</h1>
+      </div>
+
+      <div id="login-form">
+        <form id="login">
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" required placeholder="Enter your username">
+            <div class="error-message" id="login-username-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required placeholder="Enter your password">
+            <div class="error-message" id="login-password-error"></div>
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+          <div class="auth-footer">
+            <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+          </div>
+        </form>
+      </div>
+
+      <div id="register-form" class="hidden">
+        <h2 class="auth-title">Create Account</h2>
+        <form id="register">
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" required placeholder="Create a username">
+            <div class="error-message" id="register-username-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" required placeholder="Create a password">
+            <div class="error-message" id="register-password-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input type="password" id="register-confirm" required placeholder="Confirm your password">
+            <div class="error-message" id="register-confirm-error"></div>
+          </div>
+
+          <button type="submit" class="btn">Register</button>
+          <div class="auth-footer">
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <!-- Fallback audio elements (for preload) -->
-  <audio id="successSound" src="sound/success.mp3" preload="auto"></audio>
-  <audio id="errorSound" src="sound/error.mp3" preload="auto"></audio>
-
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    const successSound = document.getElementById("successSound");
-    const errorSound = document.getElementById("errorSound");
-
-    document.getElementById("groupForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const data = {
-        link: document.getElementById("link").value,
-        kategori: document.getElementById("kategori").value,
-        negara: document.getElementById("negara").value,
-        tag: document.getElementById("tag").value,
-        deskripsi: document.getElementById("deskripsi").value,
-      };
-
-      const responseBox = document.getElementById("response");
-      responseBox.textContent = "Mengirim...";
-
-      try {
-        const res = await fetch("/api/send", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-
-        const result = await res.json();
-
-        if (res.ok) {
-          responseBox.textContent = result.message || "Terkirim!";
-          successSound.play();
-        } else {
-          responseBox.textContent = result.message || "Gagal mengirim!";
-          errorSound.play();
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#00c6ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00c6ff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 1, direction: "none", out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
         }
-      } catch (err) {
-        responseBox.textContent = "Gagal mengirim!";
-        errorSound.play();
-      }
+      },
+      retina_detect: true
     });
+
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    document.getElementById('show-register').onclick = e => {
+      e.preventDefault();
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+    };
+
+    document.getElementById('show-login').onclick = e => {
+      e.preventDefault();
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    };
+
+    document.getElementById('login').onsubmit = e => {
+      e.preventDefault();
+      let isValid = true;
+      const user = document.getElementById('login-username');
+      const pass = document.getElementById('login-password');
+      document.querySelectorAll('#login-form .error-message').forEach(el => el.style.display = 'none');
+      if (!user.value) {
+        document.getElementById('login-username-error').textContent = 'Username required';
+        document.getElementById('login-username-error').style.display = 'block';
+        isValid = false;
+      }
+      if (!pass.value) {
+        document.getElementById('login-password-error').textContent = 'Password required';
+        document.getElementById('login-password-error').style.display = 'block';
+        isValid = false;
+      }
+      if (isValid) {
+        // Redirect to group add link after successful login
+        window.location.href = "https://groupsor.link/group/addgroup";
+      }
+    };
+
+    document.getElementById('register').onsubmit = e => {
+      e.preventDefault();
+      let isValid = true;
+      const user = document.getElementById('register-username');
+      const pass = document.getElementById('register-password');
+      const confirm = document.getElementById('register-confirm');
+      document.querySelectorAll('#register-form .error-message').forEach(el => el.style.display = 'none');
+      if (!user.value) {
+        document.getElementById('register-username-error').textContent = 'Username required';
+        document.getElementById('register-username-error').style.display = 'block';
+        isValid = false;
+      }
+      if (!pass.value || pass.value.length < 6) {
+        document.getElementById('register-password-error').textContent = 'Password must be at least 6 characters';
+        document.getElementById('register-password-error').style.display = 'block';
+        isValid = false;
+      }
+      if (pass.value !== confirm.value) {
+        document.getElementById('register-confirm-error').textContent = 'Passwords do not match';
+        document.getElementById('register-confirm-error').style.display = 'block';
+        isValid = false;
+      }
+      if (isValid) {
+        alert('Registered successfully!');
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+      }
+    };
   </script>
 </body>
 </html>
