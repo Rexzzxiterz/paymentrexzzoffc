@@ -1,1 +1,52 @@
-hapus file lama
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp Group Sender</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans p-6">
+  <div class="max-w-xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center text-cyan-400">WhatsApp Group Sender</h1>
+    <form id="groupForm" class="space-y-4">
+      <input type="text" id="link" placeholder="Group Link" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
+      <input type="text" id="kategori" placeholder="Kategori" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
+      <input type="text" id="negara" placeholder="Negara" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
+      <input type="text" id="tag" placeholder="Tag" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"/>
+      <textarea id="deskripsi" placeholder="Deskripsi" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"></textarea>
+      <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white p-2 rounded">Kirim</button>
+    </form>
+    <div id="response" class="mt-4 text-center"></div>
+  </div>
+
+  <script>
+    document.getElementById("groupForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const data = {
+        link: document.getElementById("link").value,
+        kategori: document.getElementById("kategori").value,
+        negara: document.getElementById("negara").value,
+        tag: document.getElementById("tag").value,
+        deskripsi: document.getElementById("deskripsi").value,
+      };
+
+      const responseBox = document.getElementById("response");
+      responseBox.textContent = "Mengirim...";
+
+      try {
+        const res = await fetch("/api/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+        responseBox.textContent = result.message || "Terkirim!";
+      } catch (err) {
+        responseBox.textContent = "Gagal mengirim!";
+      }
+    });
+  </script>
+</body>
+</html>
