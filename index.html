@@ -1,164 +1,131 @@
-<!DOCTYPE html>
-<html lang="id">
+<!-- index.html --><!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jasa Share Grup WhatsApp</title>
+  <title>Login & Submit Grup WA</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white min-h-screen p-6">
-
-  <!-- LOGIN SECTION -->
-  <div id="loginSection" class="w-full max-w-sm mx-auto mt-10 bg-gray-800 p-6 rounded-xl shadow-md">
-    <h2 class="text-xl font-bold mb-4 text-green-400">Login Pengguna</h2>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6">  <!-- LOGIN SECTION -->  <div id="loginSection" class="w-full max-w-sm bg-gray-800 p-6 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4 text-green-400">Login</h2>
     <form id="loginForm" class="space-y-4">
-      <input type="email" id="email" placeholder="Email" required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
-      <input type="password" id="password" placeholder="Password" required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
+      <input type="email" id="email" placeholder="Email" required class="w-full p-2 rounded bg-gray-700 text-white"/>
+      <input type="password" id="password" placeholder="Password" required class="w-full p-2 rounded bg-gray-700 text-white"/>
       <button type="submit" class="w-full bg-green-500 hover:bg-green-600 p-2 rounded font-bold">Login</button>
     </form>
-  </div>
-
-  <!-- USER DASHBOARD -->
-  <div id="userDashboard" class="hidden w-full max-w-md mx-auto mt-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+  </div>  <!-- DASHBOARD USER -->  <div id="dashboard" class="hidden w-full max-w-md bg-gray-800 p-6 mt-6 rounded-xl shadow-lg">
     <h2 class="text-xl font-bold mb-4 text-green-400">Submit Grup WhatsApp</h2>
     <form id="submitForm" class="space-y-4">
-      <input type="url" id="groupLink" placeholder="https://chat.whatsapp.com/..." required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
+      <input type="url" id="groupLink" placeholder="https://chat.whatsapp.com/..." required class="w-full p-2 rounded bg-gray-700 text-white"/>
       <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 p-2 rounded font-bold">Submit ke Groupsor</button>
     </form>
     <div id="statusMsg" class="text-sm text-green-300 mt-4 hidden">Link berhasil dikirim!</div>
-  </div>
-
-  <!-- ADMIN DASHBOARD -->
-  <div id="adminDashboard" class="hidden mt-10">
-    <h1 class="text-3xl font-bold mb-4 text-green-400">Admin Dashboard</h1>
-
-    <div class="grid grid-cols-2 gap-4 mb-8">
-      <div class="bg-gray-800 p-4 rounded shadow">
-        <h2 class="text-xl font-semibold text-blue-400">👤 Total Pengguna</h2>
-        <p id="totalUsers" class="text-3xl mt-2">0</p>
-      </div>
-      <div class="bg-gray-800 p-4 rounded shadow">
-        <h2 class="text-xl font-semibold text-green-400">🔗 Link Terkirim</h2>
-        <p id="totalLinks" class="text-3xl mt-2">0</p>
-      </div>
-    </div>
-
-    <div class="bg-gray-800 p-4 rounded shadow mb-6">
-      <h2 class="text-xl font-bold mb-2 text-purple-400">📋 Daftar Pengguna</h2>
-      <ul id="userList" class="list-disc pl-6 space-y-1 text-white"></ul>
-    </div>
-
-    <div class="bg-gray-800 p-4 rounded shadow">
-      <h2 class="text-xl font-bold mb-2 text-yellow-400">🔗 Link Grup Dikirim</h2>
-      <table class="w-full text-sm mt-2">
-        <thead class="text-gray-300">
-          <tr>
-            <th class="text-left">Email</th>
-            <th class="text-left">Link</th>
-            <th class="text-left">Tanggal</th>
-          </tr>
-        </thead>
-        <tbody id="linkTable" class="text-white"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <script>
+    <button id="logoutBtn" class="mt-4 bg-red-500 hover:bg-red-600 p-2 rounded w-full">Logout</button>
+  </div>  <script>
     const loginForm = document.getElementById('loginForm');
+    const dashboard = document.getElementById('dashboard');
     const loginSection = document.getElementById('loginSection');
-    const userDashboard = document.getElementById('userDashboard');
-    const adminDashboard = document.getElementById('adminDashboard');
     const submitForm = document.getElementById('submitForm');
     const statusMsg = document.getElementById('statusMsg');
-
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    let submittedLinks = JSON.parse(localStorage.getItem('submittedLinks')) || [];
+    const logoutBtn = document.getElementById('logoutBtn');
 
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value.trim();
+      const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      if (email && password) {
-        if (!users.includes(email)) {
-          users.push(email);
-          localStorage.setItem('users', JSON.stringify(users));
-        }
-
-        localStorage.setItem('userLoggedIn', email);
+      if (email === 'admin@example.com' && password === 'admin123') {
+        window.location.href = 'admin.html';
+      } else {
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('userEmail', email);
         loginSection.classList.add('hidden');
-
-        if (email === "admin@example.com") {
-          showAdminDashboard();
-        } else {
-          userDashboard.classList.remove('hidden');
-        }
+        dashboard.classList.remove('hidden');
       }
     });
 
-    submitForm?.addEventListener('submit', async (e) => {
+    submitForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const groupUrl = document.getElementById('groupLink').value;
-      const email = localStorage.getItem('userLoggedIn') || "unknown@example.com";
+      const email = localStorage.getItem('userEmail');
+      const date = new Date().toISOString().split('T')[0];
 
-      try {
-        await fetch('https://groupsor.link/group/addgroup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: new URLSearchParams({ group: groupUrl })
-        });
+      let submittedLinks = JSON.parse(localStorage.getItem('submittedLinks')) || [];
+      submittedLinks.push({ email, link: groupUrl, date });
+      localStorage.setItem('submittedLinks', JSON.stringify(submittedLinks));
 
-        const date = new Date().toISOString().split("T")[0];
-        submittedLinks.push({ email, link: groupUrl, date });
-        localStorage.setItem('submittedLinks', JSON.stringify(submittedLinks));
-
-        statusMsg.classList.remove('hidden');
-        submitForm.reset();
-      } catch (error) {
-        alert('Gagal mengirim. Coba lagi.');
-      }
+      statusMsg.classList.remove('hidden');
+      submitForm.reset();
     });
 
-    function showAdminDashboard() {
-      adminDashboard.classList.remove('hidden');
-
-      document.getElementById("totalUsers").textContent = users.length;
-      document.getElementById("totalLinks").textContent = submittedLinks.length;
-
-      const userList = document.getElementById("userList");
-      userList.innerHTML = '';
-      users.forEach(email => {
-        const li = document.createElement("li");
-        li.textContent = email;
-        userList.appendChild(li);
-      });
-
-      const linkTable = document.getElementById("linkTable");
-      linkTable.innerHTML = '';
-      submittedLinks.forEach(entry => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td class="py-1 pr-2">${entry.email}</td>
-          <td class="py-1 pr-2"><a href="${entry.link}" class="text-blue-400 underline" target="_blank">${entry.link}</a></td>
-          <td class="py-1">${entry.date}</td>
-        `;
-        linkTable.appendChild(tr);
-      });
-    }
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('userLoggedIn');
+      localStorage.removeItem('userEmail');
+      location.reload();
+    });
 
     window.onload = () => {
-      const loggedIn = localStorage.getItem('userLoggedIn');
-      if (loggedIn) {
+      if (localStorage.getItem('userLoggedIn') === 'true') {
         loginSection.classList.add('hidden');
-        if (loggedIn === "admin@example.com") {
-          showAdminDashboard();
-        } else {
-          userDashboard.classList.remove('hidden');
-        }
+        dashboard.classList.remove('hidden');
       }
     };
-  </script>
-</body>
+  </script></body>
+</html><!-- admin.html --><!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white min-h-screen p-6">
+  <h1 class="text-3xl font-bold mb-4 text-green-400">Admin Dashboard</h1>  <div class="grid grid-cols-2 gap-4 mb-8">
+    <div class="bg-gray-800 p-4 rounded shadow">
+      <h2 class="text-xl font-semibold text-blue-400">👤 Total Pengguna</h2>
+      <p id="totalUsers" class="text-3xl mt-2">0</p>
+    </div>
+    <div class="bg-gray-800 p-4 rounded shadow">
+      <h2 class="text-xl font-semibold text-green-400">🔗 Link Terkirim</h2>
+      <p id="totalLinks" class="text-3xl mt-2">0</p>
+    </div>
+  </div>  <div class="bg-gray-800 p-4 rounded shadow mb-6">
+    <h2 class="text-xl font-bold mb-2 text-purple-400">📋 Daftar Pengguna</h2>
+    <ul id="userList" class="list-disc pl-6 space-y-1 text-white"></ul>
+  </div>  <div class="bg-gray-800 p-4 rounded shadow">
+    <h2 class="text-xl font-bold mb-2 text-yellow-400">🔗 Link Grup Dikirim</h2>
+    <table class="w-full text-sm mt-2">
+      <thead class="text-gray-300">
+        <tr>
+          <th class="text-left">Email</th>
+          <th class="text-left">Link</th>
+          <th class="text-left">Tanggal</th>
+        </tr>
+      </thead>
+      <tbody id="linkTable" class="text-white"></tbody>
+    </table>
+  </div>  <script>
+    const submittedLinks = JSON.parse(localStorage.getItem('submittedLinks')) || [];
+    const emails = submittedLinks.map(x => x.email);
+    const uniqueUsers = [...new Set(emails)];
+
+    document.getElementById("totalUsers").textContent = uniqueUsers.length;
+    document.getElementById("totalLinks").textContent = submittedLinks.length;
+
+    const userList = document.getElementById("userList");
+    uniqueUsers.forEach(email => {
+      const li = document.createElement("li");
+      li.textContent = email;
+      userList.appendChild(li);
+    });
+
+    const linkTable = document.getElementById("linkTable");
+    submittedLinks.forEach(entry => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td class="py-1 pr-2">${entry.email}</td>
+        <td class="py-1 pr-2"><a href="${entry.link}" class="text-blue-400 underline" target="_blank">${entry.link}</a></td>
+        <td class="py-1">${entry.date}</td>
+      `;
+      linkTable.appendChild(tr);
+    });
+  </script></body>
 </html>
