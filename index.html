@@ -2,45 +2,82 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jasa Share Grup WhatsApp</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6">
 
-  <header class="text-center my-6">
-    <h1 class="text-3xl font-bold text-green-400">Jasa Share Grup WhatsApp</h1>
-    <p class="text-gray-300 mt-2">Promosikan grup WA kamu gratis & cepat!</p>
-  </header>
-
-  <section class="bg-gray-800 rounded-xl p-6 w-full max-w-md shadow-lg">
-    <form action="https://groupsor.link/group/addgroup" method="GET" target="_blank" class="space-y-4">
-      <label class="block">
-        <span class="text-white font-medium">Link Grup WhatsApp Kamu</span>
-        <input type="url" name="group" placeholder="https://chat.whatsapp.com/xxxx" required class="mt-1 w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-400" />
-      </label>
-      <button type="submit" class="w-full bg-green-500 hover:bg-green-600 p-3 rounded font-bold">Submit & Bagikan</button>
+  <!-- LOGIN SECTION -->
+  <div id="loginSection" class="w-full max-w-sm bg-gray-800 p-6 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4 text-green-400">Login Pengguna</h2>
+    <form id="loginForm" class="space-y-4">
+      <input type="email" id="email" placeholder="Email" required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
+      <input type="password" id="password" placeholder="Password" required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
+      <button type="submit" class="w-full bg-green-500 hover:bg-green-600 p-2 rounded font-bold">Login</button>
     </form>
-  </section>
+  </div>
 
-  <section class="mt-10 w-full max-w-xl">
-    <h2 class="text-2xl font-semibold mb-4 text-green-300">Grup WhatsApp Populer 🔥</h2>
-    <div class="space-y-3">
-      <div class="bg-gray-800 p-4 rounded shadow">
-        <h3 class="text-lg font-bold">🔗 Grup Trading Crypto</h3>
-        <a href="https://chat.whatsapp.com/example1" target="_blank" class="text-green-400 underline">Gabung Sekarang</a>
-      </div>
-      <div class="bg-gray-800 p-4 rounded shadow">
-        <h3 class="text-lg font-bold">🎮 Grup Game MLBB Indo</h3>
-        <a href="https://chat.whatsapp.com/example2" target="_blank" class="text-green-400 underline">Gabung Sekarang</a>
-      </div>
-      <!-- Tambah daftar grup lainnya -->
-    </div>
-  </section>
+  <!-- DASHBOARD SECTION -->
+  <div id="dashboard" class="hidden w-full max-w-md bg-gray-800 p-6 mt-6 rounded-xl shadow-lg">
+    <h2 class="text-xl font-bold mb-4 text-green-400">Submit Grup WhatsApp</h2>
+    <form id="submitForm" class="space-y-4">
+      <input type="url" id="groupLink" placeholder="https://chat.whatsapp.com/..." required class="w-full p-2 rounded bg-gray-700 text-white focus:ring-2 focus:ring-green-400"/>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 p-2 rounded font-bold">Submit ke Groupsor</button>
+    </form>
+    <div id="statusMsg" class="text-sm text-green-300 mt-4 hidden">Link berhasil dikirim!</div>
+  </div>
 
-  <footer class="mt-16 text-sm text-gray-500 text-center">
-    &copy; 2025 JasaShareGrupWA. Powered by <a href="https://groupsor.link" class="text-green-400 underline">Groupsor.link</a>
-  </footer>
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const dashboard = document.getElementById('dashboard');
+    const loginSection = document.getElementById('loginSection');
+    const submitForm = document.getElementById('submitForm');
+    const statusMsg = document.getElementById('statusMsg');
 
+    // Simulasi login
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Simpel validasi
+      if (email && password) {
+        localStorage.setItem('userLoggedIn', 'true');
+        loginSection.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+      }
+    });
+
+    // Auto-submit to groupsor.link (simulasi)
+    submitForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const groupUrl = document.getElementById('groupLink').value;
+
+      try {
+        // Simulasi submit (real API dari groupsor.link belum tersedia)
+        await fetch('https://groupsor.link/group/addgroup', {
+          method: 'POST', // Asumsi jika mereka menerima POST
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({ group: groupUrl })
+        });
+
+        statusMsg.classList.remove('hidden');
+        submitForm.reset();
+      } catch (error) {
+        alert('Gagal mengirim. Silakan coba lagi.');
+      }
+    });
+
+    // Auto-login jika sudah pernah login
+    window.onload = () => {
+      if (localStorage.getItem('userLoggedIn') === 'true') {
+        loginSection.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+      }
+    };
+  </script>
 </body>
 </html>
