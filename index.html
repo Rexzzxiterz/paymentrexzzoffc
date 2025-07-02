@@ -9,10 +9,10 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: url('https://files.catbox.moe/4ootdr.png') no-repeat center center fixed;
+      background-position: 60% center; /* ⬅️ Ini yang menggeser ke kanan */
       background-size: cover;
       color: #fff;
       text-align: center;
-      /* backdrop-filter: brightness(0.5); */ /* Ini juga saya matikan */
     }
 
     .container {
@@ -96,13 +96,13 @@
       </div>
     </div>
     <footer>
-      <h3>© REXZZ OFFICIAL</h3> 
+      © REXZZ OFFICIAL 
     </footer>
   </div>
 
   <script>
     let musicOn = false;
-    const music = new Audio('https://files.catbox.moe/7edpsu.mp3'); // ganti link mp3 kamu di sini
+    const music = new Audio('https://files.catbox.moe/7edpsu.mp3');
     document.getElementById('musicBtn').addEventListener('click', () => {
       if (musicOn) {
         music.pause();
