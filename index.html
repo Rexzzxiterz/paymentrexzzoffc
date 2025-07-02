@@ -2,34 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REXZZ OFFICIAL WEB VERSION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INVEX THERIUM</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000;
+      background: url('https://i.ibb.co/k9NjF99/mage-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       text-align: center;
+      backdrop-filter: brightness(0.5);
     }
 
     .container {
       margin-top: 50px;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
       font-size: 28px;
-      text-shadow: 0 0 10px red;
+      text-shadow: 0 0 15px #ff0000;
     }
 
     .menu {
-      background: #111;
+      background: rgba(0, 0, 0, 0.7);
       margin: auto;
       padding: 20px;
       width: 90%;
       max-width: 400px;
       border-radius: 20px;
-      box-shadow: 0 0 15px red;
+      box-shadow: 0 0 15px #ff0000;
     }
 
     .menu button {
@@ -72,19 +76,23 @@
       margin-top: 40px;
       font-size: 14px;
       opacity: 0.5;
+      color: #eee;
     }
 
-    .bg-image {
+    /* Optional overlay */
+    .overlay {
       position: fixed;
-      bottom: 0;
-      width: 100%;
-      opacity: 0.08;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="container">
-    <h1>REXZZ OFFICIAL WEB VERSION</h1>
+    <h1>INVEX THERIUM</h1>
     <div class="menu">
       <button>👾 Crash Invisible Android</button>
       <button>🍎 Crash Invisible iPhone</button>
@@ -98,15 +106,13 @@
       </div>
     </div>
     <footer>
-      © REXZZ OFFICIAL
+      © REXZZ OFFICIAL 
     </footer>
   </div>
 
-  <img src="https://i.ibb.co/2NqF3m6/hoodie.png" class="bg-image" />
-
   <script>
     let musicOn = false;
-    const music = new Audio('https://example.com/your-music.mp3'); // ganti link mp3
+    const music = new Audio('https://files.catbox.moe/7edpsu.mp3'); // ganti link mp3 kamu di sini
     document.getElementById('musicBtn').addEventListener('click', () => {
       if (musicOn) {
         music.pause();
