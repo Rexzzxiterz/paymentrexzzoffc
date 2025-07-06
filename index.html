@@ -7,114 +7,83 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://files.catbox.moe/4ootdr.png') no-repeat center center fixed;
-      background-position: 43% center; /* ⬅️ Ini yang menggeser ke kanan */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fff0, #000), url('https://files.catbox.moe/4ootdr.png') no-repeat center top fixed;
       background-size: cover;
-      color: #fff;
+      color: red;
       text-align: center;
     }
 
     .container {
-      margin-top: 50px;
-      position: relative;
-      z-index: 2;
+      margin-top: 100px;
+      padding: 20px;
     }
 
     h1 {
       font-size: 28px;
-      text-shadow: 0 0 15px #ff0000;
+      margin-bottom: 30px;
+      color: red;
+      text-shadow: 0 0 10px red;
     }
 
-    .menu {
-      background: rgba(0, 0, 0, 0.7);
-      margin: auto;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px #ff0000;
+    input[type="text"] {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: 2px solid red;
+      background-color: black;
+      color: red;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 30px;
+      outline: none;
+      text-align: center;
     }
 
     .menu button {
-      display: block;
-      width: 100%;
+      background: black;
+      color: red;
+      border: none;
+      font-size: 18px;
       margin: 10px 0;
       padding: 15px;
-      font-size: 16px;
-      background-color: #222;
-      color: white;
-      border: 2px solid red;
-      border-radius: 12px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 8px;
+      text-shadow: 0 0 5px red;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
     .menu button:hover {
-      background-color: red;
-      color: #000;
-    }
-
-    .footer-buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .footer-buttons button {
-      background: white;
+      background: red;
       color: black;
-      padding: 10px 20px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 14px;
-      opacity: 0.5;
-      color: #eee;
+      color: red;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>INVEX THERIUM</h1>
-    <div class="menu">
-      <button>👾 Crash Invisible Android</button>
-      <button>🍎 Crash Invisible iPhone</button>
-      <button>🕹️ Beta Invisible Delay</button>
-      <button>🚀 THANKS TO</button>
-      <button>CONTACT DEVELOPER</button>
+    <h1>Attack Menu</h1>
+    <input type="text" placeholder="62" />
 
-      <div class="footer-buttons">
-        <button id="musicBtn">🎧 Musik Off</button>
-        <button onclick="alert('Logging out...')">Logout</button>
-      </div>
+    <div class="menu">
+      <button>Ultimate Crash</button>
+      <button>Crash Invisible</button>
+      <button>Hard Delay Invisible</button>
+      <button>iOS Crash ( Exp )</button>
+      <button>Android UI Killer</button>
     </div>
+
     <footer>
-      © REXZZ OFFICIAL 
+      © INVEX THERIUM by REXZZ OFFICIAL
     </footer>
   </div>
-
-  <script>
-    let musicOn = false;
-    const music = new Audio('https://files.catbox.moe/7edpsu.mp3');
-    document.getElementById('musicBtn').addEventListener('click', () => {
-      if (musicOn) {
-        music.pause();
-        musicOn = false;
-        document.getElementById('musicBtn').textContent = '🎧 Musik Off';
-      } else {
-        music.play();
-        music.loop = true;
-        musicOn = true;
-        document.getElementById('musicBtn').textContent = '🎧 Musik On';
-      }
-    });
-  </script>
 </body>
 </html>
