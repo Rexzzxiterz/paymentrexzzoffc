@@ -20,7 +20,7 @@
     }
 
     .logo {
-      width: 310px;
+      width: 180px;
       height: auto;
       margin-bottom: 20px;
       filter: drop-shadow(0 0 10px red);
@@ -33,7 +33,7 @@
       text-shadow: 0 0 10px red;
     }
 
-    input[type="text"] {
+    input[type="text"], select {
       padding: 12px 20px;
       font-size: 18px;
       border: 2px solid red;
@@ -47,24 +47,25 @@
       text-align: center;
     }
 
-    .menu button {
-      background: black;
-      color: white;
-      border: none;
-      font-size: 18px;
-      margin: 10px 0;
-      padding: 15px;
-      width: 80%;
-      max-width: 300px;
-      border-radius: 8px;
-      text-shadow: 0 0 5px red;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+    select {
+      text-align-last: center;
     }
 
-    .menu button:hover {
+    button.send-btn {
       background: red;
       color: black;
+      border: none;
+      font-size: 18px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px red;
+    }
+
+    button.send-btn:hover {
+      background: darkred;
+      color: white;
     }
 
     footer {
@@ -83,18 +84,25 @@
     <!-- Title -->
     <h1>Attack Menu</h1>
 
-    <!-- Input -->
+    <!-- Target Input -->
     <input type="text" placeholder="Target number 628xxx" />
 
-    <!-- Menu Buttons -->
-    <div class="menu">
-      <button>Ultimate Crash</button>
-      <button>Crash Invisible</button>
-      <button>Hard Delay Invisible</button>
-      <button>iOS Crash ( Exp )</button>
-      <button>Android UI Killer</button>
+    <!-- Select Menu -->
+    <select>
+      <option selected disabled>Pilih Jenis Bug</option>
+      <option>Ultimate Crash</option>
+      <option>Crash Invisible</option>
+      <option>Hard Delay Invisible</option>
+      <option>iOS Crash (Exp)</option>
+      <option>Android UI Killer</option>
+    </select>
+
+    <!-- Send Button -->
+    <div style="margin-top: 20px;">
+      <button class="send-btn">🔥 Kirim Sekarang</button>
     </div>
 
+    <!-- Footer -->
     <footer>
       © INVEX THERIUM by REXZZ OFFICIAL
     </footer>
