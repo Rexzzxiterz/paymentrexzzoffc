@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>INVEX THERIUM</title>
   <style>
-    @font-face {
-      font-family: 'Cyberion-Demo';
-      src: url('https://files.catbox.moe/9cxqx5.ttf') format('truetype');
-    }
-
     body {
       margin: 0;
-      font-family: 'Cyberion-Demo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #000, #000), url('https://files.catbox.moe/qn5ume.jpg') no-repeat center top fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fff0, #000), url('https://files.catbox.moe/qn5ume.jpg') no-repeat center top fixed;
       background-size: cover;
       color: red;
       text-align: center;
@@ -31,12 +26,11 @@
       filter: drop-shadow(0 0 10px red);
     }
 
-    h1, h2 {
-      font-size: 36px;
+    h1 {
+      font-size: 28px;
       margin-bottom: 30px;
       color: white;
       text-shadow: 0 0 10px red;
-      font-family: 'Cyberion-Demo', sans-serif;
     }
 
     input[type="text"], select {
@@ -51,32 +45,22 @@
       margin-bottom: 30px;
       outline: none;
       text-align: center;
-      font-family: 'Cyberion-Demo', sans-serif;
     }
 
     select {
       text-align-last: center;
     }
 
-    select option:first-child {
-      font-size: 28px;
-      font-weight: bold;
-      color: red;
-      text-shadow: 0 0 5px red;
-    }
-
     button.send-btn {
       background: red;
       color: white;
       border: none;
-      font-size: 28px;
-      font-weight: bold;
-      padding: 15px 30px;
-      border-radius: 12px;
+      font-size: 18px;
+      padding: 12px 25px;
+      border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 15px red;
-      font-family: 'Cyberion-Demo', sans-serif;
+      box-shadow: 0 0 10px red;
     }
 
     button.send-btn:hover {
@@ -98,7 +82,7 @@
     <img src="https://files.catbox.moe/4mk9ev.png" alt="Logo" class="logo" />
 
     <!-- Title -->
-    <h1>ATTACK MENU</h1>
+    <h2>ATTACK MENU</h2>
 
     <!-- Target Input -->
     <input type="text" placeholder="Target number 628xxx" />
