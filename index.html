@@ -32,7 +32,7 @@
 </head>
 <body class="relative lock-scroll">
 
-  <!-- Autoplay music -->
+  <!-- Musik TANPA autoplay -->
   <audio id="birthdayMusic">
     <source src="https://files.catbox.moe/hf3x51.mp3" type="audio/mp3" />
   </audio>
@@ -75,7 +75,7 @@
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-3xl font-bold text-pink-600 mb-6">Kenangan Terindah</h2>
       <div class="w-full aspect-video max-w-3xl mx-auto mb-10">
-        <video id="mainVideo" class="rounded-xl shadow-lg w-full h-full" playsinline>
+        <video id="videoKenangan" class="rounded-xl shadow-lg w-full h-full" playsinline>
           <source src="https://files.catbox.moe/6cn1ga.mp4" type="video/mp4" />
           Browser kamu tidak mendukung video.
         </video>
@@ -105,7 +105,7 @@
     </div>
   </section>
 
-  <!-- Partikel cinta -->
+  <!-- Love Particles -->
   <script>
     const canvas = document.getElementById('loveCanvas');
     const ctx = canvas.getContext('2d');
@@ -186,29 +186,23 @@
     setInterval(countdown, 1000);
   </script>
 
-  <!-- Play music and scroll -->
+  <!-- Play music and video -->
   <script>
     function playMusicAndScroll() {
       const music = document.getElementById('birthdayMusic');
-      const video = document.getElementById('mainVideo');
+      const video = document.getElementById('videoKenangan');
 
       music.currentTime = 0;
+      music.play().catch(() => {});
       video.currentTime = 0;
-
-      music.play().catch(() => console.log("Gagal autoplay musik"));
-      video.play().catch(() => console.log("Gagal autoplay video"));
-
-      video.onended = () => {
-        music.pause();
-        music.currentTime = 0;
-      };
+      video.play().catch(() => {});
 
       document.body.classList.remove('lock-scroll');
       document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
-  <!-- Kirim balasan ke WhatsApp -->
+  <!-- Kirim balasan ke WA -->
   <script>
     function kirimBalasan() {
       const pesan = document.getElementById('balasan').value.trim();
