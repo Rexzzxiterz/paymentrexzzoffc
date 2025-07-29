@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -30,22 +29,13 @@
     }
   </style>
 </head>
-<body class="relative lock-scroll">
-
-  <!-- Autoplay music on interaction -->
-  <audio id="birthdayMusic" loop>
+<body class="relative lock-scroll">  <audio id="birthdayMusic" loop>
     <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mp3" />
-  </audio>
+  </audio><canvas id="loveCanvas"></canvas>
 
-  <!-- Partikel cinta -->
-  <canvas id="loveCanvas"></canvas>
-
-  <!-- Hero Section -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center z-10 relative px-4">
     <h1 class="text-4xl md:text-5xl text-pink-600 font-bold mb-2">Happy Girlfriend Day</h1>
     <h2 class="text-2xl md:text-3xl text-fuchsia-700 mb-6">Sayangku Rexzz</h2>
-
-    <!-- Countdown -->
     <div class="flex space-x-4 mb-6">
       <div class="bg-white rounded-lg shadow-md px-4 py-2 text-center">
         <p class="text-2xl font-bold" id="days">00</p>
@@ -64,59 +54,47 @@
         <p class="text-sm">Detik</p>
       </div>
     </div>
-
-    <!-- Tombol yang mainkan musik & scroll -->
     <button onclick="playMusicAndScroll()" class="bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-600">
       Klik disini
     </button>
-  </section>
-
-  <!-- Section 2 -->
-  <section id="next" class="py-20 bg-white px-6 z-10 relative">
+  </section>  <section id="next" class="py-20 bg-white px-6 z-10 relative">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-3xl font-bold text-pink-600 mb-6">Kenangan Terindah</h2>
       <div class="w-full aspect-video max-w-3xl mx-auto mb-10">
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vToq6yB-3CFsLa6dmP8SThRrCScE1MO8d6p5yDbwlfbUFCyD7cGbPr_wQ47n3UBRBXMwYj5OKObI8B6/embed?start=true&loop=true&delayms=3000"
-          frameborder="0"
-          width="100%"
-          height="100%"
-          allowfullscreen
-          class="rounded-xl shadow-lg w-full h-full">
+        <iframe 
+          src="https://docs.google.com/presentation/d/e/2PACX-1vQpLfNAgnspRAsxwGP7pEp3yV3fie7j8gHKQQLwPUfI_HBsCsjQwNS-EBJEOA_dGitZVQSlrhlDPnoQ/pubembed?start=false&loop=false&delayms=3000" 
+          frameborder="0" 
+          allowfullscreen 
+          class="rounded-xl shadow-lg w-full aspect-video">
         </iframe>
-      </div>
+      </div><h2 class="text-2xl font-semibold text-fuchsia-700 mb-4">Untuk pacarku yang tercinta</h2>
+  <p class="text-gray-800 mb-10 leading-relaxed">
+    Hallo sayang, Happy girlfriend day yaaa 💗🢐, aku mau bilang kalok aku bersyukur banget punya kamu,
+    kamu orang baik yang selalu coba ngertiin keadaan aku, padahal aku sering bikin kamu kesel, nangis,
+    pokoknya kamu terbaik. Maafin aku yaaa belum bisa bahagiain kamu ngga kaya cowo di luar sana, tapi
+    nggapapa aku usahain untuk bisa bahagiain kamu aku pasti bisa. Pokoknya aku udah bersyukur dengan apa
+    yang kamu kasi ke aku, tapi aku selalu buat kamu kecewa maaf yaaa kalau aku jahat sama kamu. And
+    apapun keadaannya jangan jadiin alasan buat kita berpisah, okevyyy. Maafin aku yaaa sayangg 💗 aku janji
+    kedepannya akan membuat kamu bahagia dan ngga akan ngecewain kamu lagi 🩆💗
+  </p>
 
-      <h2 class="text-2xl font-semibold text-fuchsia-700 mb-4">Untuk pacarku yang tercinta</h2>
-      <p class="text-gray-800 mb-10 leading-relaxed">
-        Hallo sayang, Happy girlfriend day yaaa 💗💐, aku mau bilang kalok aku bersyukur banget punya kamu,
-        kamu orang baik yang selalu coba ngertiin keadaan aku, padahal aku sering bikin kamu kesel, nangis,
-        pokoknya kamu terbaik. Maafin aku yaaa belum bisa bahagiain kamu ngga kaya cowo di luar sana, tapi
-        nggapapa aku usahain untuk bisa bahagiain kamu aku pasti bisa. Pokoknya aku udah bersyukur dengan apa
-        yang kamu kasi ke aku, tapi aku selalu buat kamu kecewa maaf yaaa kalau aku jahat sama kamu. And
-        apapun keadaannya jangan jadiin alasan buat kita berpisah, okevyyy. Maafin aku yaaa sayangg 💗 aku janji
-        kedepannya akan membuat kamu bahagia dan ngga akan ngecewain kamu lagi 🫂💗
-      </p>
+  <div class="mt-10 text-left">
+    <label for="balasan" class="block text-pink-600 font-semibold mb-2">Balas pesan</label>
+    <textarea id="balasan" rows="4" class="w-full p-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Tulis balasan kamu disini..."></textarea>
+    <button onclick="kirimBalasan()" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-full shadow-md">
+      Kirim balasan
+    </button>
+  </div>
 
-      <!-- Form Balasan ke WhatsApp -->
-      <div class="mt-10 text-left">
-        <label for="balasan" class="block text-pink-600 font-semibold mb-2">Balas pesan</label>
-        <textarea id="balasan" rows="4" class="w-full p-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Tulis balasan kamu disini..."></textarea>
-        <button onclick="kirimBalasan()" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-full shadow-md">
-          Kirim balasan
-        </button>
-      </div>
+  <h2 class="text-xl font-semibold text-pink-500 mt-12">Ucapan</h2>
+  <p class="text-gray-700 mt-4">Aku sayang banget sama kamu, dan terima kasih udah tetap bertahan sama aku 💗</p>
+</div>
 
-      <h2 class="text-xl font-semibold text-pink-500 mt-12">Ucapan</h2>
-      <p class="text-gray-700 mt-4">Aku sayang banget sama kamu, dan terima kasih udah tetap bertahan sama aku 💗</p>
-    </div>
-  </section>
-
-  <!-- Script: Love Particles -->
-  <script>
+  </section>  <script>
     const canvas = document.getElementById('loveCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     const hearts = [];
     function Heart() {
       this.x = Math.random() * canvas.width;
@@ -124,7 +102,6 @@
       this.size = Math.random() * 5 + 2;
       this.speedY = Math.random() * 1 + 0.5;
     }
-
     Heart.prototype.update = function () {
       this.y += this.speedY;
       if (this.y > canvas.height) {
@@ -132,7 +109,6 @@
         this.x = Math.random() * canvas.width;
       }
     }
-
     Heart.prototype.draw = function () {
       ctx.fillStyle = 'rgba(255,105,180,0.8)';
       ctx.beginPath();
@@ -145,13 +121,11 @@
                         this.x, this.y);
       ctx.fill();
     }
-
     function initHearts() {
       for (let i = 0; i < 100; i++) {
         hearts.push(new Heart());
       }
     }
-
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       hearts.forEach(h => {
@@ -160,39 +134,29 @@
       });
       requestAnimationFrame(animate);
     }
-
     initHearts();
     animate();
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-  </script>
-
-  <!-- Script: Countdown -->
-  <script>
+  </script>  <script>
     const countdown = () => {
       const endDate = new Date("2025-08-01T00:00:00").getTime();
       const now = new Date().getTime();
       const timeLeft = endDate - now;
-
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
       document.getElementById('days').textContent = days.toString().padStart(2, '0');
       document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
       document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
       document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     };
-
     countdown();
     setInterval(countdown, 1000);
-  </script>
-
-  <!-- Script: Play music, unlock scroll, scroll to next -->
-  <script>
+  </script>  <script>
     function playMusicAndScroll() {
       const music = document.getElementById('birthdayMusic');
       music.play().catch(e => {
@@ -201,21 +165,10 @@
       document.body.classList.remove('lock-scroll');
       document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
     }
-  </script>
-
-  <!-- Script: Kirim balasan ke WhatsApp -->
-  <script>
     function kirimBalasan() {
-      const pesan = document.getElementById('balasan').value.trim();
-      if (pesan === "") {
-        alert("Tolong isi pesan terlebih dahulu yaa 💗");
-        return;
-      }
-      const nomorTujuan = "6282313186068"; // Ganti dengan nomor WA tujuan
-      const url = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
+      const pesan = document.getElementById("balasan").value;
+      const url = `https://wa.me/62xxxxxxxxxx?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
