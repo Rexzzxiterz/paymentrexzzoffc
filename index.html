@@ -88,7 +88,16 @@
         kedepannya akan membuat kamu bahagia dan ngga akan ngecewain kamu lagi 🫂💗
       </p>
 
-      <h2 class="text-xl font-semibold text-pink-500">Ucapan</h2>
+      <!-- Form Balasan ke WhatsApp -->
+      <div class="mt-10 text-left">
+        <label for="balasan" class="block text-pink-600 font-semibold mb-2">Balasanmu untuk pacarmu:</label>
+        <textarea id="balasan" rows="4" class="w-full p-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Tulis balasan romantismu di sini..."></textarea>
+        <button onclick="kirimBalasan()" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-full shadow-md">
+          Kirim ke WhatsApp
+        </button>
+      </div>
+
+      <h2 class="text-xl font-semibold text-pink-500 mt-12">Ucapan</h2>
       <p class="text-gray-700 mt-4">Aku sayang banget sama kamu, dan terima kasih udah tetap bertahan sama aku 💗</p>
     </div>
   </section>
@@ -155,7 +164,7 @@
   <!-- Script: Countdown -->
   <script>
     const countdown = () => {
-      const endDate = new Date("2025-08-01T00:00:00").getTime(); // Ganti jika perlu
+      const endDate = new Date("2025-08-01T00:00:00").getTime();
       const now = new Date().getTime();
       const timeLeft = endDate - now;
 
@@ -181,10 +190,22 @@
       music.play().catch(e => {
         console.log("Autoplay gagal, user harus interaksi manual");
       });
-
-      // Hapus kunci scroll dan scroll ke section selanjutnya
       document.body.classList.remove('lock-scroll');
       document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Script: Kirim balasan ke WhatsApp -->
+  <script>
+    function kirimBalasan() {
+      const pesan = document.getElementById('balasan').value.trim();
+      if (pesan === "") {
+        alert("Tolong isi pesan terlebih dahulu yaa 💗");
+        return;
+      }
+      const nomorTujuan = "6282313186068"; // Ganti dengan nomor WA tujuan
+      const url = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
     }
   </script>
 
